@@ -1,0 +1,85 @@
+﻿<Page
+    x:Class="FotoRamka.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:FotoRamka"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:win="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:not_win="http://uno.ui/not_win"
+
+    mc:Ignorable="d not_win"
+    Background="Black" Loaded="Page_Loaded" LosingFocus="Page_LosingFocus" GotFocus="Page_GotFocus">
+
+    <Grid Background="Black">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+    <Image x:Name="uiImage" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Tapped="uiPic_Tapped" >
+            <Image.ContextFlyout>
+                <MenuFlyout>
+                    <MenuFlyoutItem Text="change size" Click="uiPic_Tapped" />
+                    <MenuFlyoutItem Text="get info" Click="uiGetInfo_Click" />
+                    <MenuFlyoutItem Text="get URL" Click="uiGetUrl_Click" />
+                    <MenuFlyoutItem Text="next" Click="uiGoNext_Click" />
+                    <MenuFlyoutItem Text="stop" Click="uiStartStop_Click" />
+                </MenuFlyout>
+            </Image.ContextFlyout>
+        </Image>
+
+        <not_win:StackPanel Orientation="Horizontal" Grid.Row="1" x:Name="uiAndroPanel" Background="Gray">
+            <AppBarButton Icon="Play" Label="Start" Click="uiStartStop_Click" x:Name="uiStartStop" />
+            <AppBarButton Icon="Clock" Label="Zwłoka">
+                <AppBarButton.Flyout>
+                    <MenuFlyout x:Name="uiMenuDelay">
+                        <ToggleMenuFlyoutItem x:Name="uiDelay30" Text="30 sec" Click="uiDelay_Click" />
+                        <ToggleMenuFlyoutItem x:Name="uiDelay60" Text="1 min" Click="uiDelay_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiDelay300" Text="5 min" Click="uiDelay_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+
+            <AppBarButton Icon="List" Label="Zakres" >
+                <AppBarButton.Flyout>
+                    <MenuFlyout x:Name="uiMenuAlbum">
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumRodzina" Text="rodzina" Click="uiAlbum_Click" />
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumFullFoto" Text="foto" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumModels" Text="models" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumEro" Text="ero" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumPublic" Text="public" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumWsioRawno" Text="wsio" Click="uiAlbum_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+        </not_win:StackPanel>
+
+    </Grid>
+    <win:Page.BottomAppBar>
+        <CommandBar ClosedDisplayMode="Minimal" Name="uiCommandBar">
+            <AppBarButton Icon="Play" Label="Start" Click="uiStartStop_Click" x:Name="uiStartStop" />
+            <AppBarButton Icon="Clock" Label="Zwłoka">
+                <AppBarButton.Flyout>
+                    <MenuFlyout x:Name="uiMenuDelay">
+                        <ToggleMenuFlyoutItem x:Name="uiDelay30" Text="30 sec" Click="uiDelay_Click" />
+                        <ToggleMenuFlyoutItem x:Name="uiDelay60" Text="1 min" Click="uiDelay_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiDelay300" Text="5 min" Click="uiDelay_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+            <AppBarButton Icon="List" Label="Zakres" >
+                <AppBarButton.Flyout>
+                    <MenuFlyout x:Name="uiMenuAlbum">
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumRodzina" Text="rodzina" Click="uiAlbum_Click" />
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumFullFoto" Text="foto" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumModels" Text="models" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumEro" Text="ero" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumPublic" Text="public" Click="uiAlbum_Click"/>
+                        <ToggleMenuFlyoutItem x:Name="uiAlbumWsioRawno" Text="wsio" Click="uiAlbum_Click"/>
+                    </MenuFlyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+        </CommandBar>
+    </win:Page.BottomAppBar>
+</Page>
